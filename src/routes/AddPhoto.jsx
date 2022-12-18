@@ -24,9 +24,13 @@ const AddPhoto = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then(() => {
-      navigate("/photos");
-    });
+    })
+      .then(() => {
+        navigate("/photos");
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   };
 
   return (
